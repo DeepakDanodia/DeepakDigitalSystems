@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak Digital Systems — High-Speed Web & Video Systems</title>
+    <meta name="description" content="We engineer high-speed, high-converting Web Systems & High-Retention Video Systems for brands and creators. 48-Hour SLA, WhatsApp Auto-Capture, Transparent Pricing.">
+    <meta name="theme-color" content="#FFFFFF">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            emerald: '#10B981',
+                            charcoal: '#111827',
+                            offwhite: '#F8F9FA',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.7s ease-out forwards',
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.35)' },
+                            '50%': { boxShadow: '0 0 0 14px rgba(16, 185, 129, 0)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Smooth scroll offset for sticky header */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
+
+        /* Subtle gradient texture for hero */
+        .hero-texture {
+            background-image: radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(16, 185, 129, 0.03) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 80%, rgba(37, 99, 235, 0.02) 0%, transparent 50%);
+        }
+
+        /* Card hover lift */
+        .card-lift {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .card-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Tactile button press */
+        .btn-tactile {
+            transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.15s ease;
+        }
+        .btn-tactile:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Subtle ring on focus */
+        .ring-focus-accent:focus-visible {
+            outline: 2px solid #2563EB;
+            outline-offset: 3px;
+            border-radius: 8px;
+        }
+
+        /* Mobile menu backdrop */
+        .mobile-menu-backdrop {
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        /* Portfolio placeholder shimmer */
+        .placeholder-shimmer {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 40%, #f1f5f9 70%, #e2e8f0 100%);
+            background-size: 300% 300%;
+            animation: shimmerBg 3s ease-in-out infinite;
+        }
+        @keyframes shimmerBg {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Divider dot pattern */
+        .dot-pattern {
+            background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] text-[#111827] font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-gray-100 shadow-sm" role="banner">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-18" aria-label="Main navigation">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 shrink-0 group" aria-label="Deepak Digital Systems — Home">
+                <span class="w-9 h-9 rounded-lg bg-brand-blue flex items-center justify-center text-white font-extrabold text-sm tracking-tight shadow-sm group-hover:shadow-md transition-shadow duration-200">
+                    DD
+                </span>
+                <span class="hidden sm:inline-block text-lg font-bold text-brand-charcoal tracking-tight leading-tight">
+                    Deepak Digital<br class="sm:hidden"> Systems
+                </span>
+                <span class="sm:hidden text-base font-bold text-brand-charcoal tracking-tight">Deepak Digital</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <ul class="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium text-gray-700">
+                <li><a href="#services" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-brand-blue transition-colors duration-150 ring-focus-accent">Services</a></li>
+                <li><a href="#pricing" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-brand-blue transition-colors duration-150 ring-focus-accent">Pricing</a></li>
+                <li><a href="#portfolio" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-brand-blue transition-colors duration-150 ring-focus-accent">Portfolio</a></li>
+                <li><a href="#guarantees" class="px-3 py-2 rounded-lg hover:bg-gray-100 hover:text-brand-blue transition-colors duration-150 ring-focus-accent">Guarantees</a></li>
+            </ul>
+
+            <!-- Desktop CTA -->
+            <a href="https://wa.me/919784935776?text=Hi%20Deepak%20Digital%2C%20I%20want%20to%20book%20a%20System%20Audit."
+            class="hidden md:inline-flex items-center gap-2 bg-brand-blue text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:bg-blue-700 btn-tactile transition-all duration-200 ring-focus-accent whitespace-nowrap"
+            target="_blank" rel="noopener noreferrer"
+            aria-label="Book a System Audit via WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Book System Audit
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-toggle"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors duration-150 ring-focus-accent"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        type="button">
+        <svg id="menu-icon-open" class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 text-gray-700 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+    </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div id="mobile-menu-panel"
+class="hidden md:hidden fixed inset-0 top-16 z-40 bg-white/95 mobile-menu-backdrop border-t border-gray-100"
+aria-hidden="true">
+<div class="flex flex-col p-6 gap-3">
+    <a href="#services" class="text-lg font-medium text-gray-800 py-3 px-4 rounded-xl hover:bg-gray-100 hover:text-brand-blue transition-colors mobile-nav-link">Services</a>
+    <a href="#pricing" class="text-lg font-medium text-gray-800 py-3 px-4 rounded-xl hover:bg-gray-100 hover:text-brand-blue transition-colors mobile-nav-link">Pricing</a>
+    <a href="#portfolio" class="text-lg font-medium text-gray-800 py-3 px-4 rounded-xl hover:bg-gray-100 hover:text-brand-blue transition-colors mobile-nav-link">Portfolio</a>
+    <a href="#guarantees" class="text-lg font-medium text-gray-800 py-3 px-4 rounded-xl hover:bg-gray-100 hover:text-brand-blue transition-colors mobile-nav-link">Guarantees</a>
+    <hr class="border-gray-200 my-2">
+    <a href="https://wa.me/919784935776?text=Hi%20Deepak%20Digital%2C%20I%20want%20to%20book%20a%20System%20Audit."
+    class="inline-flex items-center justify-center gap-2 bg-brand-blue text-white font-semibold text-base px-6 py-3.5 rounded-xl shadow-md hover:bg-blue-700 btn-tactile transition-all duration-200 text-center mobile-nav-link"
+    target="_blank" rel="noopener noreferrer">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    Book System Audit
+</a>
+</div>
+</div>
+</header>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="flex-1">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative hero-texture bg-[#F8F9FA] overflow-hidden" aria-labelledby="hero-headline">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/3 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-emerald/4 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 relative z-10">
+            <div class="max-w-3xl mx-auto text-center lg:text-left lg:mx-0">
+                <div class="inline-flex items-center gap-2 bg-brand-emerald/10 border border-brand-emerald/25 text-brand-emerald font-semibold text-sm px-4 py-1.5 rounded-full mb-6 animate-pulse-soft shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+                    ⚡ 48-Hour Delivery SLA
+                </div>
+
+                <h1 id="hero-headline" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-charcoal leading-[1.08] animate-fade-in">
+                    We Engineer <span class="text-brand-blue">High-Speed Web Systems</span> &amp; Retention Video That Convert
+                </h1>
+
+                <p class="mt-5 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-slide-up" style="animation-delay: 0.15s;">
+                    From high-converting websites with <strong class="text-brand-charcoal font-semibold">WhatsApp Auto-Capture</strong> to scroll-stopping video reels — we build digital infrastructure that grows your brand, guaranteed.
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.3s;">
+                    <a href="https://wa.me/919784935776?text=Hi%20Deepak%20Digital%2C%20I%20want%20a%20free%20system%20audit."
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-blue text-white font-semibold text-base lg:text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:bg-blue-700 btn-tactile transition-all duration-200 ring-focus-accent group"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg class="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    WhatsApp Audit — Free
+                </a>
+                <a href="#portfolio"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white border-2 border-gray-200 text-brand-charcoal font-semibold text-base lg:text-lg px-8 py-4 rounded-2xl hover:border-gray-300 hover:bg-gray-50 btn-tactile transition-all duration-200 ring-focus-accent shadow-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+                View Demos
+            </a>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-gray-500 justify-center lg:justify-start animate-slide-up" style="animation-delay: 0.45s;">
+            <span class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-emerald" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Trusted by 50+ Brands
+            </span>
+            <span class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-emerald" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                100% Quality Assured
+            </span>
+            <span class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-emerald" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                48-Hour SLA
+            </span>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ==================== CORE SERVICES & PRICING GRID ==================== -->
+<section id="pricing" class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="pricing-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+            <span class="text-sm font-semibold text-brand-blue tracking-widest uppercase">Transparent Pricing</span>
+            <h2 id="pricing-heading" class="mt-3 text-3xl sm:text-4xl font-extrabold text-brand-charcoal tracking-tight">
+                Choose Your Growth System
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                Milestone-based pricing. 50% upfront to kick off, 50% on delivery. No hidden fees, no surprises.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch max-w-5xl mx-auto">
+            <!-- Card 1: Starter Web -->
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm card-lift flex flex-col ring-focus-accent relative">
+                <div class="flex-1">
+                    <span class="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wide">STARTER</span>
+                    <h3 class="text-xl font-bold text-brand-charcoal">Starter Web</h3>
+                    <p class="text-sm text-gray-500 mt-1">1-Page High-Speed Lead System</p>
+                    <div class="mt-5 flex items-baseline gap-1">
+                        <span class="text-4xl font-extrabold text-brand-charcoal">₹5,999</span>
+                        <span class="text-gray-400 text-sm">Setup</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            1-Page Lightning-Fast Site
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Mobile-Responsive Design
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Basic SEO Foundation
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            5-Day Delivery
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919784935776?text=Hi%2C%20I%20want%20the%20Starter%20Web%20plan."
+                class="mt-7 w-full inline-flex items-center justify-center gap-2 bg-white border-2 border-gray-300 text-brand-charcoal font-semibold text-sm px-5 py-3 rounded-xl hover:border-brand-blue hover:text-brand-blue hover:bg-blue-50/50 btn-tactile transition-all duration-200"
+                target="_blank" rel="noopener noreferrer">
+                Get Started
+            </a>
+        </div>
+
+        <!-- Card 2: Growth Web (Popular) -->
+        <div class="bg-white border-2 border-brand-blue rounded-2xl p-6 sm:p-8 shadow-lg card-lift flex flex-col ring-focus-accent relative scale-[1.02] md:scale-100">
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md whitespace-nowrap tracking-wide">
+                ⭐ MOST POPULAR
+            </span>
+            <div class="flex-1">
+                <span class="inline-block bg-blue-100 text-brand-blue text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wide">GROWTH</span>
+                <h3 class="text-xl font-bold text-brand-charcoal">Growth Web</h3>
+                <p class="text-sm text-gray-500 mt-1">5-Page System + WhatsApp Auto-Capture</p>
+                <div class="mt-5 flex items-baseline gap-1">
+                    <span class="text-4xl font-extrabold text-brand-charcoal">₹11,999</span>
+                    <span class="text-gray-400 text-sm">Setup</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                    <li class="flex items-start gap-2.5">
+                        <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            5-Page High-Speed Website
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <strong>WhatsApp Auto-Capture</strong> Engine
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <strong>48-Hour SLA</strong> Guarantee
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Advanced SEO + Speed Optimization
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919784935776?text=Hi%2C%20I%20want%20the%20Growth%20Web%20plan."
+                class="mt-7 w-full inline-flex items-center justify-center gap-2 bg-brand-blue text-white font-semibold text-sm px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:bg-blue-700 btn-tactile transition-all duration-200"
+                target="_blank" rel="noopener noreferrer">
+                Get Growth Web
+            </a>
+        </div>
+
+        <!-- Card 3: Sovereign Bundle -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm card-lift flex flex-col ring-focus-accent relative">
+            <div class="flex-1">
+                <span class="inline-block bg-emerald-100 text-brand-emerald text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wide">SOVEREIGN</span>
+                <h3 class="text-xl font-bold text-brand-charcoal">Sovereign Bundle</h3>
+                <p class="text-sm text-gray-500 mt-1">Growth Web + 4 Reels + 1 YT Video</p>
+                <div class="mt-5 flex items-baseline gap-1">
+                    <span class="text-4xl font-extrabold text-brand-charcoal">₹34,999</span>
+                    <span class="text-gray-400 text-sm">Setup</span>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm text-gray-600">
+                    <li class="flex items-start gap-2.5">
+                        <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <strong>Everything in Growth Web</strong>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            4 High-Retention Reels (9:16)
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            1 YouTube Video (16:9)
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <svg class="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Full Brand System Integration
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/919784935776?text=Hi%2C%20I%20want%20the%20Sovereign%20Bundle."
+                class="mt-7 w-full inline-flex items-center justify-center gap-2 bg-white border-2 border-brand-emerald text-brand-emerald font-semibold text-sm px-5 py-3 rounded-xl hover:bg-emerald-50 hover:border-emerald-600 hover:text-emerald-700 btn-tactile transition-all duration-200"
+                target="_blank" rel="noopener noreferrer">
+                Get Sovereign Bundle
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ==================== INTERACTIVE PORTFOLIO / DEMOS ==================== -->
+<section id="portfolio" class="bg-[#F8F9FA] py-16 sm:py-20 lg:py-24" aria-labelledby="portfolio-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+            <span class="text-sm font-semibold text-brand-emerald tracking-widest uppercase">Our Work</span>
+            <h2 id="portfolio-heading" class="mt-3 text-3xl sm:text-4xl font-extrabold text-brand-charcoal tracking-tight">
+                Portfolio &amp; Demos
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                Real projects. Real results. Hover to preview — tap to explore full demos.
+            </p>
+        </div>
+
+        <div class="mb-10 lg:mb-14">
+            <h3 class="text-lg font-semibold text-brand-charcoal mb-5 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-emerald" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="3"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                Video Reels <span class="text-gray-400 font-normal text-sm">(9:16 Vertical)</span>
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-[9/16] max-w-[220px] mx-auto w-full cursor-pointer group ring-focus-accent">
+                    <div class="absolute inset-0 placeholder-shimmer"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue ml-0.5" fill="currentColor" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">Brand Reel 01</span>
+                    </div>
+                </div>
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-[9/16] max-w-[220px] mx-auto w-full cursor-pointer group ring-focus-accent">
+                    <div class="absolute inset-0 placeholder-shimmer" style="animation-delay: 0.5s;"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue ml-0.5" fill="currentColor" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">Product Reel 02</span>
+                    </div>
+                </div>
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-[9/16] max-w-[220px] mx-auto w-full cursor-pointer group ring-focus-accent hidden sm:flex">
+                    <div class="absolute inset-0 placeholder-shimmer" style="animation-delay: 1s;"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue ml-0.5" fill="currentColor" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">Creator Reel 03</span>
+                    </div>
+                </div>
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-[9/16] max-w-[220px] mx-auto w-full cursor-pointer group ring-focus-accent hidden lg:flex">
+                    <div class="absolute inset-0 placeholder-shimmer" style="animation-delay: 1.5s;"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                        <div class="w-12 h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue ml-0.5" fill="currentColor" viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                        </div>
+                        <span class="text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">Campaign Reel 04</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-semibold text-brand-charcoal mb-5 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                Web Prototypes <span class="text-gray-400 font-normal text-sm">(16:9 Desktop Previews)</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-video w-full cursor-pointer group ring-focus-accent">
+                    <div class="absolute inset-0 placeholder-shimmer"></div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10">
+                        <div class="flex items-center gap-3 bg-white/95 rounded-xl px-5 py-3 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                            <span class="text-sm font-semibold text-brand-charcoal">E-Commerce Lead System</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative bg-white rounded-2xl overflow-hidden shadow-sm card-lift aspect-video w-full cursor-pointer group ring-focus-accent">
+                    <div class="absolute inset-0 placeholder-shimmer" style="animation-delay: 0.8s;"></div>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors duration-300 z-10">
+                        <div class="flex items-center gap-3 bg-white/95 rounded-xl px-5 py-3 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                            <span class="text-sm font-semibold text-brand-charcoal">Creator Landing Page</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TRUST & SLA GUARANTEES ==================== -->
+<section id="guarantees" class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="guarantees-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+            <span class="text-sm font-semibold text-brand-emerald tracking-widest uppercase">Why Trust Us</span>
+            <h2 id="guarantees-heading" class="mt-3 text-3xl sm:text-4xl font-extrabold text-brand-charcoal tracking-tight">
+                Built on Transparency &amp; Speed
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                We put skin in the game. Every project is backed by concrete guarantees that protect your investment.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div class="bg-[#F8F9FA] rounded-2xl p-7 sm:p-8 text-center card-lift ring-focus-accent border border-gray-100">
+                <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-7 h-7 text-brand-emerald" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-brand-charcoal mb-2">48-Hour SLA</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    We commit to a <strong>48-hour delivery window</strong> on approved scope. If we miss it, you get a credit. Speed without compromise.
+                </p>
+            </div>
+
+            <div class="bg-[#F8F9FA] rounded-2xl p-7 sm:p-8 text-center card-lift ring-focus-accent border border-gray-100">
+                <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="3"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="2" y1="10" x2="22" y2="10"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-brand-charcoal mb-2">50% Upfront Gate</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Pay only <strong>50% to start</strong>, the remaining 50% only after you approve the final delivery. Your cash flow, protected.
+                </p>
+            </div>
+
+            <div class="bg-[#F8F9FA] rounded-2xl p-7 sm:p-8 text-center card-lift ring-focus-accent border border-gray-100">
+                <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-7 h-7 text-brand-emerald" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-brand-charcoal mb-2">100% Quality Assurance</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Every deliverable passes our <strong>rigorous QA checklist</strong>. If you're not satisfied, we iterate until you are. No questions asked.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FINAL CTA STRIP ==================== -->
+<section class="bg-brand-blue py-14 sm:py-16 lg:py-20" aria-labelledby="final-cta-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 id="final-cta-heading" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Launch Your Growth System?
+        </h2>
+        <p class="mt-4 text-blue-100 text-lg leading-relaxed max-w-xl mx-auto">
+            Tap below to start a WhatsApp conversation. We'll audit your current setup and map out a plan — free of charge.
+        </p>
+        <a href="https://wa.me/919784935776?text=Hi%20Deepak%20Digital%2C%20I%20want%20to%20book%20a%20System%20Audit."
+        class="mt-8 inline-flex items-center gap-3 bg-white text-brand-blue font-bold text-base lg:text-lg px-9 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:bg-gray-50 btn-tactile transition-all duration-200 ring-focus-accent group"
+        target="_blank" rel="noopener noreferrer">
+        <svg class="w-6 h-6 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Start WhatsApp Chat
+    </a>
+    <p class="mt-4 text-blue-200 text-sm">Free audit · No commitment · 48-hour SLA available</p>
+</div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-white border-t border-gray-100 py-10 sm:py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center sm:items-start gap-2">
+                <a href="#" class="flex items-center gap-2 group" aria-label="Deepak Digital Systems — Home">
+                    <span class="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center text-white font-extrabold text-xs shadow-sm">DD</span>
+                    <span class="text-base font-bold text-brand-charcoal">Deepak Digital Systems</span>
+                </a>
+                <p class="text-sm text-gray-500">&copy; 2026 Deepak Digital Systems. All rights reserved.</p>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/919784935776?text=Hi%20Deepak%20Digital%2C%20I%20have%20a%20project%20in%20mind."
+                class="w-10 h-10 rounded-full bg-brand-emerald/10 flex items-center justify-center text-brand-emerald hover:bg-brand-emerald hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com/deepakdigitalsystems"
+                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#E1306C] hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Follow on Instagram">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com/@deepakdigitalsystems"
+            class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#FF0000] hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+            target="_blank" rel="noopener noreferrer"
+            aria-label="Subscribe on YouTube">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:coresovereign.official@gmail.com"
+        class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition-all duration-200 shadow-sm hover:shadow-md"
+        aria-label="Send Email">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+    </a>
+</div>
+</div>
+
+<div class="mt-8 pt-6 border-t border-gray-100 text-center text-xs text-gray-400">
+    <p>Engineered with precision. Delivered with speed. Backed by trust.</p>
+</div>
+</div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+    (function() {
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const menuPanel = document.getElementById('mobile-menu-panel');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        let isOpen = false;
+
+        function closeMenu() {
+            isOpen = false;
+            menuPanel.classList.add('hidden');
+            menuPanel.setAttribute('aria-hidden', 'true');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        function openMenu() {
+            isOpen = true;
+            menuPanel.classList.remove('hidden');
+            menuPanel.setAttribute('aria-hidden', 'false');
+            iconOpen.classList.add('hidden');
+            iconClose.classList.remove('hidden');
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        toggleBtn.addEventListener('click', function() {
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        mobileNavLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) {
+                closeMenu();
+                toggleBtn.focus();
+            }
+        });
+
+        menuPanel.addEventListener('click', function(e) {
+            if (e.target === menuPanel) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isOpen) {
+                closeMenu();
+            }
+        });
+    })();
+</script>
+</body>
+</html>
