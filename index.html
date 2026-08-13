@@ -22,11 +22,11 @@
 <meta property="og:title" content="Deepak Digital Systems — High-Speed Web & Retention Video Systems">
 <meta property="og:description" content="Fixed-price web systems and retention video for brands and creators. 48-hour delivery SLA. WhatsApp Auto-Capture.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="DDS_Logo.png">
+<meta property="og:image" content="/DDS_Logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Deepak Digital Systems — High-Speed Web & Retention Video Systems">
 <meta name="twitter:description" content="Fixed-price web systems and retention video for brands and creators. 48-hour delivery SLA. WhatsApp Auto-Capture.">
-<meta name="twitter:image" content="DDS_Logo.png">
+<meta name="twitter:image" content="/DDS_Logo.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -640,7 +640,8 @@
 <header>
   <div class="container navbar">
     <a href="#" class="logo">
-      <img src="DDS_Logo.png" alt="Deepak Digital Systems" class="logo-img" width="33" height="36">
+      <img src="/DDS_Logo.png" alt="Deepak Digital Systems" class="logo-img" width="33" height="36">
+      <svg class="logo-fallback-svg" viewBox="0 0 32 32" width="32" height="32" style="display:none;flex-shrink:0;" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0F172A"/><path d="M9 8h7a7 7 0 0 1 0 16H9V8z" fill="none" stroke="#10B981" stroke-width="3"/><path d="M9 8h4v16H9z" fill="#10B981"/></svg>
       <span class="logo-text">DEEPAK DIGITAL</span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -1060,7 +1061,7 @@
   <button class="modal-close" id="leadModalClose" aria-label="Close form">✕</button>
   <div class="modal-header">
     <div class="modal-brand">
-      <img src="DDS_Logo.png" alt="" class="modal-mark" width="14" height="16" aria-hidden="true">
+      <img src="/DDS_Logo.png" alt="" class="modal-mark" width="14" height="16" aria-hidden="true">
       <span class="eyebrow">SOW REQUEST</span>
     </div>
     <h3 id="leadModalTitle">Book Your System Slot</h3>
@@ -1080,12 +1081,17 @@
   /* ---------- Logo fallback + theme-synced asset swap ---------- */
   document.querySelectorAll('.logo-img, .modal-mark').forEach(function(img){
     img.addEventListener('error', function(){
-      if (this.getAttribute('src') !== 'DDS_Logo.png') {
-        this.setAttribute('src', 'DDS_Logo.png');
+      const currentSrc = this.getAttribute('src') || '';
+      if (currentSrc !== '/DDS_Logo.png' && currentSrc !== 'DDS_Logo.png') {
+        this.setAttribute('src', '/DDS_Logo.png');
       } else {
         this.classList.add('load-failed');
+        const fallback = this.nextElementSibling;
+        if (fallback && fallback.classList.contains('logo-fallback-svg')) {
+          fallback.style.display = 'inline-block';
+        }
       }
-    }, { once: true });
+    });
   });
   function isLightActive(){
     const explicit = document.documentElement.getAttribute('data-theme');
@@ -1094,7 +1100,7 @@
     return !(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   }
   function updateLogoSrc(){
-    const src = isLightActive() ? 'dds-mark-light.png' : 'dds-mark-dark.png';
+    const src = isLightActive() ? '/dds-mark-light.png' : '/dds-mark-dark.png';
     document.querySelectorAll('.logo-img, .modal-mark').forEach(function(img){
       if (!img.classList.contains('load-failed')) {
         img.setAttribute('src', src);
